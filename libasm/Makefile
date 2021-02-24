@@ -6,13 +6,13 @@
 #    By: junhypar <junhypar@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/23 11:14:43 by junhypar          #+#    #+#              #
-#    Updated: 2021/02/24 09:39:26 by junhypar         ###   ########.fr        #
+#    Updated: 2021/02/24 13:45:12 by junhypar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= libasm.a
 
-SRCS	= ft_strlen.s
+SRCS	= ft_strlen.s ft_strcpy.s ft_strcmp.s ft_write.s ft_read.s ft_strdup.s
 
 OBJS	= ${SRCS:.s=.o}
 
@@ -34,5 +34,10 @@ clean:
 
 fclean:	clean
 			rm -f ${NAME}
+			rm -f libasm
 
 re:		fclean all
+
+test:	re
+			@$(RM) libasm
+			${CC} main.c libasm.a -o libasm
